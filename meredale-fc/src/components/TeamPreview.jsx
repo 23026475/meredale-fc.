@@ -72,21 +72,22 @@ export default function TeamPreview() {
 
   return (
     <div className="relative">
-      {/* Cards Container - No borders, blends with background */}
+      {/* Cards Container */}
       <div className="overflow-hidden">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 transition-all duration-500">
           {visiblePlayers.map((player) => (
-            <div
+            <Link
               key={player._id}
-              className="group overflow-hidden transition-all duration-300 hover:scale-105"
+              to={`/players/${player._id}`}
+              className="group overflow-hidden"
             >
-              {/* Player Image - No card styling */}
-              <div className="relative overflow-hidden">
+              {/* Player Image Container - Navy border on hover */}
+              <div className="relative overflow-hidden rounded-lg border-2 border-transparent group-hover:border-navy transition-all duration-300">
                 {player.photo ? (
                   <img
                     src={urlFor(player.photo).width(400).height(400).url()}
                     alt={player.name}
-                    className="w-full aspect-square object-cover group-hover:scale-105 transition duration-500"
+                    className="w-full aspect-square object-cover transition duration-300"
                   />
                 ) : (
                   <div className="w-full aspect-square bg-gray-100 flex items-center justify-center">
@@ -98,14 +99,11 @@ export default function TeamPreview() {
               {/* Player Info - Centered */}
               <div className="text-center mt-4">
                 <h3 className="text-lg font-bold text-navy mb-2">{player.name}</h3>
-                <Link
-                  to={`/players/${player._id}`}
-                  className="inline-block bg-red text-white px-4 py-1 rounded-full text-sm font-semibold hover:bg-navy transition"
-                >
+                <span className="inline-block bg-red text-white px-4 py-1 rounded-full text-sm font-semibold hover:bg-navy transition">
                   View Bio
-                </Link>
+                </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -115,7 +113,7 @@ export default function TeamPreview() {
         <>
           <button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-red transition -ml-4"
+            className="absolute left-0 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-red transition -ml-4 z-10"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -123,7 +121,7 @@ export default function TeamPreview() {
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-red transition -mr-4"
+            className="absolute right-0 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-red transition -mr-4 z-10"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
