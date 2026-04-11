@@ -1,0 +1,17 @@
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  background-color: #ffffff;
+}
+
+/* Your custom colors */
+.bg-navy { background-color: #1e264a; }
+.bg-red { background-color: #e01d1d; }
+.text-navy { color: #1e264a; }
+.text-red { color: #e01d1d; }
