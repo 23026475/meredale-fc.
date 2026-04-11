@@ -4,9 +4,9 @@ import { useState } from 'react';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const navItems = [
+const navItems = [
   { name: 'Home', path: '/' },
-  { name: 'Players', path: '/players' },
+  { name: 'Team', path: '/team' },  // Changed from 'Players'
   { name: 'Fixtures', path: '/fixtures' },
   { name: 'About', path: '/about' },
   { name: 'Gallery', path: '/gallery' },
